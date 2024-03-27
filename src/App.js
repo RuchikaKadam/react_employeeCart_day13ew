@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <ProductsContext.Provider value={{ team, employees, addToTeam, removeFromTeam, calculateAverageAge }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap:'wrap'}}>
+      <div style={{ display: 'flex', justifyContent: 'space-between'}}>
         <Employees />
         <Team />
       </div>

@@ -8,7 +8,7 @@ body {
 }
 
 .team_cont, .emp_cont {
-  width: 48dvw;
+  width: 40dvw;
   height:fit-content; 
   margin: 5dvb;
   padding: 1dvw 5dvw;
@@ -75,7 +75,7 @@ button:hover {
 
 @media only screen and (max-width: 768px) {
   .team_cont, .emp_cont {
-    min-width: 90dvw;
+    min-width: 80dvw;
     margin:  1rem auto;
   }
 
