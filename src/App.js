@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+// App.js
+import React, { createContext, useState } from 'react';
+import Employees from './Employees';
+import Team from './Team';
+import employeesData from './Data';
 import './App.css';
 
-function App() {
+export const ProductsContext = createContext();
+
+const App = () => {
+  const [team, setTeam] = useState([]);
+  const [employees] = useState(employeesData);
+
+  const addToTeam = (employee) => {
+    setTeam([...team, employee]);
+  };
+
+  const removeFromTeam = (id) => {
+    setTeam(team.filter(member => member.id !== id));
+  };
+
+  const calculateAverageAge = () => {
+    const totalAge = team.reduce((acc, member) => acc + member.age, 0);
+    return team.length > 0 ? Math.round(totalAge / team.length) : 0;
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ProductsContext.Provider value={{ team, employees, addToTeam, removeFromTeam, calculateAverageAge }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between'}}>
+        <Employees />
+        <Team />
+      </div>
+    </ProductsContext.Provider>
   );
-}
+};
 
 export default App;
