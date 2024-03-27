@@ -58,7 +58,8 @@ button:hover {
   background-color: #b1b0b0;
 }
 .in-team button{
-  background-color: #8b8b8b
+  background-color: #8b8b8b;
+  cursor: default;
 }
 
 .total {
